@@ -53,7 +53,7 @@ namespace EisenhowerCore
             String quarterAsString = "";
             foreach (TodoQuarter quarter in Quarters.Values)
             {
-                quarterAsString += quarter.toString();
+                quarterAsString += quarter.ToString();
                 outputString += String.Format("{0}\n", quarterAsString);
             }
             return outputString;

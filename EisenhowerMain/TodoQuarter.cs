@@ -70,7 +70,7 @@ namespace EisenhowerCore {
             return items;
         }
 
-        public String toString()
+        public String ToString()
         {
             // Return formatted list to label 
             String outputString = "";
