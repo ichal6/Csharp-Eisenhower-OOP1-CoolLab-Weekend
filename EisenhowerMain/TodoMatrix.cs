@@ -7,6 +7,13 @@ namespace EisenhowerCore
     public class TodoMatrix {
         public Dictionary<string, TodoQuarter> Quarters = new Dictionary<string, TodoQuarter>();
         
+        public TodoMatrix()
+        {
+            Quarters.Add("UrgentImportant", new TodoQuarter());
+            Quarters.Add("NotUrgentImportant", new TodoQuarter());
+            Quarters.Add("UrgentNotImportant", new TodoQuarter());
+            Quarters.Add("NotUrgentNotImportant", new TodoQuarter());
+        }
 
         public void AddItem(String title, DateTime deadline, bool isImportant)
         {
@@ -15,18 +22,18 @@ namespace EisenhowerCore
             TimeSpan urgent = deadline - today;
             if (urgent.Days <= 3){
                 if(isImportant){
-                    Quarters["IU"].AddItem(title, deadline);
+                    Quarters["UrgentImportant"].AddItem(title, deadline);
                 }
                 else{
-                    Quarters["NU"].AddItem(title, deadline);
+                    Quarters["UrgentNotImportant"].AddItem(title, deadline);
                 }
             }
             else{
                 if(isImportant){
-                    Quarters["IN"].AddItem(title, deadline);
+                    Quarters["NotUrgentImportant"].AddItem(title, deadline);
                 }
                 else{
-                    Quarters["NN"].AddItem(title, deadline);
+                    Quarters["NotUrgentNotImportant"].AddItem(title, deadline);
                 }
             }
         }
@@ -73,6 +80,14 @@ namespace EisenhowerCore
         //     }       
         //     saveToFile(dataToSave, filename);
         // }
+
+        public void AddItemsFromFile(String filename){
+
+        }
+
+        public void SaveItemsToFile(String filename){
+            
+        }
         
 
         public static StreamReader OpenFile(string filename)
