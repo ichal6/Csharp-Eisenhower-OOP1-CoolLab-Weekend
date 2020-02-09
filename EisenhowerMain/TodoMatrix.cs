@@ -9,10 +9,10 @@ namespace EisenhowerCore
         
         public TodoMatrix()
         {
-            Quarters.Add("UrgentImportant", new TodoQuarter());
-            Quarters.Add("NotUrgentImportant", new TodoQuarter());
-            Quarters.Add("UrgentNotImportant", new TodoQuarter());
-            Quarters.Add("NotUrgentNotImportant", new TodoQuarter());
+            Quarters.Add("IU", new TodoQuarter());
+            Quarters.Add("NU", new TodoQuarter());
+            Quarters.Add("IN", new TodoQuarter());
+            Quarters.Add("NN", new TodoQuarter());
         }
 
         public void AddItem(String title, DateTime deadline, bool isImportant)
@@ -22,18 +22,18 @@ namespace EisenhowerCore
             TimeSpan urgent = deadline - today;
             if (urgent.Days <= 3){
                 if(isImportant){
-                    Quarters["UrgentImportant"].AddItem(title, deadline);
+                    Quarters["IU"].AddItem(title, deadline);
                 }
                 else{
-                    Quarters["UrgentNotImportant"].AddItem(title, deadline);
+                    Quarters["NU"].AddItem(title, deadline);
                 }
             }
             else{
                 if(isImportant){
-                    Quarters["NotUrgentImportant"].AddItem(title, deadline);
+                    Quarters["IN"].AddItem(title, deadline);
                 }
                 else{
-                    Quarters["NotUrgentNotImportant"].AddItem(title, deadline);
+                    Quarters["NN"].AddItem(title, deadline);
                 }
             }
         }
