@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace EisenhowerCore
 {
@@ -50,7 +51,46 @@ namespace EisenhowerCore
             }
             return outputString;
         }
+
+        // public void saveItemsToFile(String filename)
+        // {
+        //     //Add items from mat to file by format:
+        //     // title|day-month|is_important
+        //     String dataToSave = "";
+        //     String unconvertData = "";
+        //     foreach(Map.Entry<String, TodoQuarter> entry in todoQuarters.entrySet()){
+        //         unconvertData = entry.getValue().toString().toString();
+        //         if(unconvertData == ""){
+        //             continue;
+        //         }
+
+        //         if(entry.getKey().equals("IU") | entry.getKey().equals("IN")){
+        //             dataToSave += createStringToSave(entry, true);
+        //         }
+        //         else{
+        //             dataToSave += createStringToSave(entry, false);
+        //         }
+        //     }       
+        //     saveToFile(dataToSave, filename);
+        // }
         
+
+        public static StreamReader OpenFile(string filename)
+        {
+            StreamReader data = null;
+
+            try 
+            {
+                data = new StreamReader(filename);
+            }
+            catch ( IOException e) 
+            {
+                Console.WriteLine("Sorry but I was unable to open your data file");
+                Console.WriteLine(e.Message);
+                Environment.Exit(0);
+            }
+            return data;
+        }
     }
 
 }
