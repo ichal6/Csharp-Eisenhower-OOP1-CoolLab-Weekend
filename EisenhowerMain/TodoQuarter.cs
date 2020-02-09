@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace EisenhowerCore { 
 
@@ -17,8 +18,16 @@ namespace EisenhowerCore {
             //Append new item to List
             TodoItem newItem = new TodoItem(title, deadLine);
             items.Add(newItem);
+            SortItems();
+            
             //todoItems.Sort(new DeadLine());
             //todoItems.Sort((x, y) => DateTime.Compare(x.Created, y.Created));
+        }
+
+        private void SortItems()
+        {
+            items = items.OrderBy(TodoItem => TodoItem.Deadline).ToList<TodoItem>();
+       
         }
 
         public void RemoveItem(int index)
