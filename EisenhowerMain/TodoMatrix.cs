@@ -5,7 +5,7 @@ using System.IO;
 namespace EisenhowerCore
 {
     public class TodoMatrix {
-        Dictionary<string, TodoQuarter> todoQuarters = new Dictionary<string, TodoQuarter>();
+        public Dictionary<string, TodoQuarter> Quarters = new Dictionary<string, TodoQuarter>();
         
 
         public void AddItem(String title, DateTime deadline, bool isImportant)
@@ -15,18 +15,18 @@ namespace EisenhowerCore
             TimeSpan urgent = deadline - today;
             if (urgent.Days <= 3){
                 if(isImportant){
-                    todoQuarters["IU"].AddItem(title, deadline);
+                    Quarters["IU"].AddItem(title, deadline);
                 }
                 else{
-                    todoQuarters["NU"].AddItem(title, deadline);
+                    Quarters["NU"].AddItem(title, deadline);
                 }
             }
             else{
                 if(isImportant){
-                    todoQuarters["IN"].AddItem(title, deadline);
+                    Quarters["IN"].AddItem(title, deadline);
                 }
                 else{
-                    todoQuarters["NN"].AddItem(title, deadline);
+                    Quarters["NN"].AddItem(title, deadline);
                 }
             }
         }
@@ -34,7 +34,7 @@ namespace EisenhowerCore
         public void ArchiveItems()
         {
             //Removes all TodoItem object with parametr isDone from list todoItems
-            foreach (TodoQuarter quarter in todoQuarters.Values){
+            foreach (TodoQuarter quarter in Quarters.Values){
                 quarter.ArchiveItems();
             }
         }
@@ -44,7 +44,7 @@ namespace EisenhowerCore
             //Return a todoQuarters list formatted to string
             String outputString = "";
             String quarterAsString = "";
-            foreach (TodoQuarter quarter in todoQuarters.Values)
+            foreach (TodoQuarter quarter in Quarters.Values)
             {
                 quarterAsString += quarter.toString();
                 outputString += String.Format("{0}\n", quarterAsString);
