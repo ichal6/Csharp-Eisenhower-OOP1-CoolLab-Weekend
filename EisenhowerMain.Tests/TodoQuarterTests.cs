@@ -36,6 +36,7 @@ namespace EisenhowerMain.Tests
             dates.Add(DateTime.Parse("2017-06-14"));
             dates.Add(DateTime.Parse("2017-05-24"));
             dates.Add(DateTime.Parse("2017-06-04"));
+            dates.Add(DateTime.Parse("2017-07-03"));
             dates.Add(DateTime.Parse("2017-07-03")); 
 
             foreach (var date in dates)
