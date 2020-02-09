@@ -37,6 +37,19 @@ namespace EisenhowerCore
                 quarter.ArchiveItems();
             }
         }
+
+        public String toString()
+        {
+            //Return a todoQuarters list formatted to string
+            String outputString = "";
+            String quarterAsString = "";
+            foreach (TodoQuarter quarter in todoQuarters.Values)
+            {
+                quarterAsString += quarter.toString();
+                outputString += String.Format("{0}\n", quarterAsString);
+            }
+            return outputString;
+        }
         
     }
 
