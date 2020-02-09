@@ -48,10 +48,10 @@ public class TodoItem
             int Month = Deadline.Month;
             int Day = Deadline.Day;
             if (IsDone){
-                outputString = String.Format("[x] {0}-{1} {2}", Day, Month, Title);
+                outputString = String.Format("[x] {1}-{0} {2}", Day, Month, Title);
             }
             else{
-                outputString = String.Format("[ ] {0}-{1} {2}", Day, Month, Title);
+                outputString = String.Format("[ ] {1}-{0} {2}", Day, Month, Title);
             }
             return outputString;
         }
