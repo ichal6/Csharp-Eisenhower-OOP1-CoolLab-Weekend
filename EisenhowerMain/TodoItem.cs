@@ -3,9 +3,9 @@ using System;
 namespace EisenhowerCore {
 public class TodoItem
     {
-        private string Title;
-        private DateTime Deadline = new DateTime();
-        private bool IsDone;
+        public string Title;
+        public DateTime Deadline = new DateTime();
+        public bool IsDone;
 
         public TodoItem(string title, DateTime deadline)
         {
@@ -36,6 +36,10 @@ public class TodoItem
         public void UnMark()
         {
             IsDone = false;
+        }
+
+        public bool getIsDone(){
+            return IsDone;
         }
 
         public string ToString()
